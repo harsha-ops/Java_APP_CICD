@@ -5,7 +5,7 @@ FROM adoptopenjdk/openjdk11:alpine-jre
 
 # Simply the artifact path
 
-ARG artifact=target/*.war 
+ARG artifact=target/*.jar 
 
 WORKDIR /app
 
