@@ -16,10 +16,8 @@ pipeline {
       steps {
         sh 'ls -ltr'
         // build the project and create a JAR file
-        sh '''
-        cd java-app && mvn clean package
-        chown -R jenkins:jenkins java-app/target
-        '''
+        sh 'cd java-app && mvn clean package'
+        sh 'chown -R jenkins:jenkins java-app/target'
       }
     }
     stage('Static Code Analysis') {
