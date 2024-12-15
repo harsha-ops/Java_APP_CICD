@@ -11,7 +11,11 @@ WORKDIR /app
 
 COPY ${artifact} /app.jar
 
+RUN chown jenkins:jenkins /app.jar
+
 RUN ls -l /app.jar
+
+USER jenkins
 
 # This should not be changed
 
