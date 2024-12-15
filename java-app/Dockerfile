@@ -11,6 +11,8 @@ WORKDIR /app
 
 COPY ${artifact} /app.jar
 
+# Create a non-root user (jenkins) and set the permissions
+RUN addgroup -S jenkins && adduser -S jenkins -G jenkins
 RUN chown jenkins:jenkins /app.jar
 
 RUN ls -l /app.jar
