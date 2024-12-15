@@ -55,9 +55,8 @@ pipeline {
                     git config user.email "harsha.xyz@gmail.com"
                     git config user.name "Harsha"
                     BUILD_NUMBER=${BUILD_NUMBER}
-                    git pull https://github.com/harsha-ops/Java_APP_CICD.git
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" java-app-manifests/deployment.yml
-                    git add java-app-manifests/deployment.yml
+                    git add .
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}
                 '''
