@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'abhishekf5/maven-abhishek-docker-agent:v1'
-      args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon5
+      args '-v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon5
     }
   }
   stages {
@@ -20,7 +20,6 @@ pipeline {
         sh 'cd java-app && mvn clean package'
         sh 'pwd'
         sh 'ls -ltr'
-        sh 'chown -R jenkins:jenkins java-app/target'
       }
     }
     stage('Static Code Analysis') {
