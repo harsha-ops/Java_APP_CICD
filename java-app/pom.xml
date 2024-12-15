@@ -51,7 +51,7 @@
 
     <build>
 
-        <finalName>java-app</finalName>
+        <finalName>spring-boot-web</finalName>
 
         <plugins>
             <plugin>
