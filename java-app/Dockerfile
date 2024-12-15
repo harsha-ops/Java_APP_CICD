@@ -11,6 +11,8 @@ WORKDIR /app
 
 COPY ${artifact} /app.jar
 
+RUN ls -l /app.jar
+
 # This should not be changed
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
