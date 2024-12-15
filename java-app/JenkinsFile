@@ -8,8 +8,9 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        sh 'echo passed'
         git branch: 'master', url: 'https://github.com/harsha-ops/Java_APP_CICD.git'
+        sh 'pwd'
+        sh 'ls -l'
       }
     }
     stage('Build and Test') {
@@ -17,6 +18,8 @@ pipeline {
         sh 'ls -ltr'
         // build the project and create a JAR file
         sh 'cd java-app && mvn clean package'
+        sh 'pwd'
+        sh 'ls -ltr'
         sh 'chown -R jenkins:jenkins java-app/target'
       }
     }
