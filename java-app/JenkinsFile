@@ -18,7 +18,7 @@ pipeline {
         // build the project and create a JAR file
         sh 'cd java-app && mvn clean package'
         sh '''
-        id jenkins || useradd -M -s /bin/bash jenkins //create a user jenkins inside the container to change the permissions of target folder from root to jenkins
+        id jenkins || useradd -M -s /bin/bash jenkins
         chown -R jenkins:jenkins java-app/target
         '''
 
