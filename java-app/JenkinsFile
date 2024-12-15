@@ -17,11 +17,6 @@ pipeline {
         sh 'ls -l'
         // build the project and create a JAR file
         sh 'cd java-app && mvn clean package'
-        sh '''
-        id jenkins || useradd -M -s /bin/bash jenkins
-        chown -R jenkins:jenkins java-app/target
-        '''
-
       }
     }
     stage('Static Code Analysis') {
