@@ -10,8 +10,8 @@ This is a MVC architecture based application where controller returns a page wit
 Checkout the repo and move to the directory
 
 ```
-git clone https://github.com/iam-veeramalla/Jenkins-Zero-To-Hero/java-maven-sonar-argocd-helm-k8s/sprint-boot-app
-cd java-maven-sonar-argocd-helm-k8s/sprint-boot-app
+git clone https://github.com/harsha-ops/Java_APP_CICD.git
+cd Java_APP_CICD/java-app/
 ```
 
 Execute the Maven targets to generate the artifacts
@@ -37,11 +37,11 @@ java -jar target/spring-boot-web.jar
 Build the Docker Image
 
 ```
-docker build -t ultimate-cicd-pipeline:v1 .
+docker build -t java-app-cicd:v1 .
 ```
 
 ```
-docker run -d -p 8010:8080 -t ultimate-cicd-pipeline:v1
+docker run -d -p 8010:8080 -t java-app-cicd:v1
 ```
 
 Hurray !! Access the application on `http://<ip-address>:8010`
@@ -49,7 +49,7 @@ Hurray !! Access the application on `http://<ip-address>:8010`
 
 ## Next Steps
 
-### Configure a Sonar Server locally
+### Configure a Sonar Server
 
 ```
 apt install unzip
