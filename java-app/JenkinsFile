@@ -53,6 +53,7 @@ pipeline {
         environment {
             GIT_REPO_NAME = "Java_App_CICD"
             GIT_USER_NAME = "harsha-ops"
+            DOCKER_IMAGE = "harsha6798/java-app-ci-image"
         }
         steps {
             withCredentials([string(credentialsId: 'github_token', variable: 'GITHUB_TOKEN')]) {
@@ -60,7 +61,7 @@ pipeline {
                     git config user.email "harsha.xyz@gmail.com"
                     git config user.name "Harsha"
                     BUILD_NUMBER=${BUILD_NUMBER}
-                    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" java-app-manifests/deployment.yml
+                    sed -i "s/image:${DOCKER_IMAGE}:*/image:${DOCKER_IMAGE}:${BUILD_NUMBER}/g" java-app-manifests/deployment.yml
                     git add .
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}
