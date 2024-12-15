@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: java-app
-        image: harsha6798/java-app-ci-image:70
+        image: harsha6798/java-app-ci-image:71
         ports:
         - containerPort: 8080
 
